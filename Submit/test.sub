@@ -1,0 +1,16 @@
+#!/bin/bash
+universe = vanilla
+log = /home/mzheng54/group/log/job_$(Cluster)_$(Process).log
+error = /home/mzheng54/group/log/job_$(Cluster)_$(Process).err
+output = /home/mzheng54/group/log/job_$(Cluster)_$(Process).out
+executable = test.sh
+arguments = $(a)
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/python38.tar.gz,/home/mzheng54/packages.tar.gz,draft.py,parameter.txt,reddit_edges.json
+request_cpus = 1
+request_memory = 1GB
+request_disk = 1GB
+
+queue 1 a from parameter.txt 
